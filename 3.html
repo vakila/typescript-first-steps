@@ -77,6 +77,17 @@
 
                     --
 
+                    ### Course Project (continued)
+
+                    We're going full-stack!
+
+                    - `event-me` > Vite frontend
+                    - `event-me-api`<span class=".mdi--arrow-right-bold"></span> > Express/Node backend
+
+
+
+                    --
+
                     ### Ready?
 
                     # Let's go!
@@ -103,6 +114,99 @@
                             <img width="256" alt="JavaScript-logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/JavaScript-logo.png/256px-JavaScript-logo.png?20120221235433"  style="border-radius: 20px;"/>
                         </a>
                     </div>
+
+
+                    --
+
+                    ```sh
+                    cd event-me-api
+                    npm i
+                    npm run build
+                    ```
+
+                    ```json
+                    "scripts" : {
+                        // ...
+                        "build": "tsc & vite build"
+                    }
+                    ```
+
+                    --
+
+
+                    ### Squiggle alert!
+
+                    Let's tackle these backend type errors so the code compiles!
+
+                    `src/routes/events.ts`
+                
+                    --
+
+
+                    ### Exporting/Importing types
+
+                    ```ts
+                    // db.ts
+                    export type User = //...
+                    ```
+
+                    ```ts
+                    // routes/events.ts
+                    import type {User} from '../db';
+
+                    const u: User = //...
+                    ```
+                    
+
+                    --
+
+                    ### Exploring the compiler output
+
+                    Let's a peek at the `dist/` dir that `tsc` generated
+
+                    What do you notice?
+
+                    --
+
+                    ### Compilers & Configs & Choices, oh my!
+
+                    How should I configure the tsconfig for my project?
+
+                    [TS Handbook >> Choosing Compiler Options](https://www.typescriptlang.org/docs/handbook/modules/guides/choosing-compiler-options.html)
+
+
+                    --
+
+                    ### `tsconfig` Bases
+                    [github.com/tsconfig/bases](https://github.com/tsconfig/bases)
+                    
+                    Starter configs for various use cases
+
+
+                    "DefinitelyTyped for TSConfigs"
+
+                    --
+
+                    ### `@tsconfig/recommended`
+
+                    ```sh
+                    npm i -D @tsconfig/recommended
+                    ```
+
+                    ```json
+                    // tsconfig.json
+                    {
+                        "extends": "@tsconfig/recommended/tsconfig.json", 
+                        "compilerOptions": {
+                            // ....
+                        }
+                    }
+                    ```
+
+
+
+
+
                 </textarea>
             </section>
 
