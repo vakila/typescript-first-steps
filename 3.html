@@ -299,25 +299,32 @@
 
                     ```ts
                     import { expectTypeOf } from 'vitest';
-                    import fn from './myFunction';
-                    import schema from './sharedSchema';
+                    import myFn from './myFunction';
+                    import MyType from './sharedSchema';
 
                     test('my types work properly', () => {
-                        expectTypeOf(fn).toBeFunction();
-                        expectTypeOf(fn).not.toBeAny();
-                        expectTypeOf(fn).parameter(0).toMatchTypeOf<schema>(); 
+                        expectTypeOf(myFn).toBeFunction();
+                        expectTypeOf(myFn).not.toBeAny();
+                        expectTypeOf(myFn).parameter(0).toMatchTypeOf<MyType>(); 
                     });
 
                     ```
 
+                    --
 
+                    ### Tons of helpful TS libs out there!
+
+                    These are just some popular examples
               
+                    Check out [github.com/dzharii/awesome-typescript](https://github.com/dzharii/awesome-typescript)
 
 
 
 
                 </textarea>
             </section>
+
+
 
 
 
