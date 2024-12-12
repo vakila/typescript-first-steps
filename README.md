@@ -13,6 +13,8 @@ Jump-start your TypeScript journey with this friendly, practical intro from Anja
 1. [TS: Why & How](./0.html)
 2. [Using TS for JS](./1.html)
 3. [Language Features & Functionality](./2.html)
+4. [Pro TS setups](./3.html)
+5. [Next steps with TS](./4.html)
 
 ## Overview
   This course will equip you with the key concepts & skills you’ll need to become proficient with the TypeScript language, and acquaint you with the production-grade tooling, workflows, and resources you’ll want to accelerate your productivity and career growth.
