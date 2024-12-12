@@ -307,16 +307,18 @@
 				### Generic types
 
 				```ts
+				type LogLevel = 'log' | 'error' | 'warn';
+
 				function levelLogger<L extends LogLevel>(level: L)  {
 					const logger = console[level];
 					return logger;
 				};
+
 				const warn = levelLogger('warn');
 				warn('Generics can get tricky');
 				```
 
 				--
-
 				
 
 				
