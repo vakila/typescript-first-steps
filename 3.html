@@ -164,7 +164,9 @@
 
                     Let's a peek at the `dist/` dir that `tsc` generated
 
-                    What do you notice?
+                    Try messing with the `target` value...
+                    Notice any differences in the output?
+
 
                     --
 
@@ -186,7 +188,8 @@
 
                     --
 
-                    ### Recommended defaults
+                    ### Using & extending bases
+
 
                     ```sh
                     npm i -D @tsconfig/recommended
@@ -205,6 +208,108 @@
                     
                 </textarea>
             </section>
+
+            <section data-markdown data-separator-vertical="\n--\n">
+                <textarea data-template>
+
+                    ### Types & Data Validation
+
+                    ![Gif of a woman putting on a bicycle helmet with the text "safety first"](https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExa2owZjZ1ZW54cmgzbDRjdWg4YjFybHI2ejNyYmhkNGl0b2JmdXVldSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/ppcPOCojxincokmTjp/giphy.webp)
+
+
+                    --
+
+                    ### "end-to-end type safety"
+
+                    ![Gif of Jeff Goldblum blinking rapidly and asking "What does that mean?"](https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExemoyZXVzaTAzaGNlZ2pjNXQzcG9kMmp6eGM0bjMwcWQ1anZnM3IzcCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/BQPdUGNQlvH8GL8oVU/giphy.webp)
+
+                    --
+
+                    <a href="https://imgflip.com/i/9dj4e4"><img src="https://i.imgflip.com/9dj4e4.jpg" title="made at imgflip.com" alt='Handshake meme labeled "frontend" on one muscly arm, "backend" on the other, and "shared type-aware schema" on their handshake'/></a>
+
+                
+
+                    --
+
+                    ### [zod.dev](https://zod.dev)
+
+                                 
+                    ```sh
+                    npm i zod
+                    ```
+
+                
+                    _"TS-first schema validation with static type inference"_
+
+
+                    - Provides typed API to define a data shape
+                    - Checks that data has that shape, _at runtime_ in JS
+                    - Gives TS what it needs to infer matching type(s)
+       
+                    --
+                    
+                    ### Declaring a Schema
+
+                    ```ts
+                    import { z } from "zod";
+
+                    const User = z.object({
+                        username: z.string(),
+                    });
+                    ```
+
+                    --
+
+                    ### Validating data
+
+                    ```ts
+                    // throws an error if the data
+                    // doesn't match the schema
+                    User.parse({ username: "Ludwig" });
+                    ```
+
+                    ### Inferring TS type(s)
+
+                    ```ts
+                    // extract the inferred type
+                    type User = z.infer<typeof User>; // { username: string }
+                    ```
+
+
+                    --
+
+
+
+                    ## Type-aware Tests
+
+                    [vitest.dev/guide/testing-types](https://vitest.dev/guide/testing-types)
+
+                    ```sh
+                    npm i -D vitest
+                    ```
+
+                    ```ts
+                    import { expectTypeOf } from 'vitest';
+                    import fn from './myFunction';
+                    import schema from './sharedSchema';
+
+                    test('my types work properly', () => {
+                        expectTypeOf(fn).toBeFunction();
+                        expectTypeOf(fn).not.toBeAny();
+                        expectTypeOf(fn).parameter(0).toMatchTypeOf<schema>(); 
+                    });
+
+                    ```
+
+
+              
+
+
+
+
+                </textarea>
+            </section>
+
 
 
         </div>
